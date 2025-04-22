@@ -1,11 +1,5 @@
 name: OrangeFox - Build
 
-# Credits to:
-# https://github.com/TeamWin
-# https://gitlab.com/OrangeFox
-# https://github.com/azwhikaru for Recovery Builder Template
-# And all Contributors in every repositories I used
-
 on:
   workflow_dispatch:
     inputs:
@@ -84,6 +78,7 @@ jobs:
     - name: Clone Snapuserd Dependencies
       run: |
         cd ${GITHUB_WORKSPACE}/OrangeFox/fox_${{ inputs.MANIFEST_BRANCH }}
+        rm -rf ./external/gflags
         git clone --depth=1 https://android.googlesource.com/platform/external/gflags -b android-12.1.0_r4 ./external/gflags
         
     - name: Clone Device Tree
